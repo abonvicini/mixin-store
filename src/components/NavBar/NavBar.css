@@ -1,0 +1,47 @@
+.navbar {
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  align-items: center;
+  justify-items: center;
+  background-color: #0070E0;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navbar p {
+  color: rgba(255, 255, 255, 0.692);
+  margin: 0.765em 1em;
+  overflow-wrap: unset;
+
+}
+.navbar p:hover {
+   color: rgba(255, 255, 255, 0.966);
+   transition: ease-in-out 200ms;
+   cursor: pointer;
+   user-select: none;
+}
+
+.navbar .cart {
+  color: rgba(255, 255, 255, 0.692);
+  margin: 0.765em 1em;
+  overflow-wrap: unset;
+}
+
+.cart:hover {
+  color: rgba(255, 255, 255, 0.966);
+  transition: ease-in-out 200ms;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (max-width: 732px) {
+  .navbar {
+    grid-template-columns: 1fr;
+  }
+}
+
+
