@@ -1,14 +1,15 @@
 import React from 'react';
 import './NavBar.css';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 import Logo from '../Logo';
+import CartWidget from '../CartWidget/CartWidget';
 
 const NavBar = () => {
-  const handlerClick = (e) => {
+  const handleClick = (e) => {
     console.log('Soy ' + e.target.innerText + ' y soy clickeable');
   };
 
-  const handlerClickCart = () => {
+  const handleClickCart = () => {
     console.log('Soy un carrito de compras');
   };
 
@@ -18,14 +19,12 @@ const NavBar = () => {
         <Logo />
       </div>
       <div className="flex">
-        <p onClick={(e) => handlerClick(e)}>Home</p>
-        <p onClick={(e) => handlerClick(e)}>Sobre nosotros</p>
-        <p onClick={(e) => handlerClick(e)}>Categorias</p>
-        <p onClick={(e) => handlerClick(e)}>Contacto</p>
+        <p onClick={(e) => handleClick(e)}>Home</p>
+        <p onClick={(e) => handleClick(e)}>Sobre nosotros</p>
+        <p onClick={(e) => handleClick(e)}>Categorias</p>
+        <p onClick={(e) => handleClick(e)}>Contacto</p>
       </div>
-      <div>
-        <ShoppingCartIcon className="cart" onClick={handlerClickCart} />
-      </div>
+      <CartWidget handleClickCart={handleClickCart} />
     </div>
   );
 };
