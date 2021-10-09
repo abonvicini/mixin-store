@@ -1,6 +1,6 @@
 import React from 'react';
-import Logo from '../Logo';
-import CartWidget from '../CartWidget/CartWidget';
+import Logo from './Logo';
+import CartWidget from './CartWidget';
 import styles from './styles/NavBar.module.css';
 
 const NavBar = () => {
@@ -19,7 +19,6 @@ const NavBar = () => {
       </div>
       <div className={styles.flex}>
         <p onClick={(e) => handleClick(e)}>Home</p>
-        <p onClick={(e) => handleClick(e)}>Sobre nosotros</p>
         <p onClick={(e) => handleClick(e)}>Categorias</p>
         <p onClick={(e) => handleClick(e)}>Contacto</p>
       </div>

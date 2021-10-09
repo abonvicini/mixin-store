@@ -1,9 +1,10 @@
 .App {
-  background-color: #001E3C;
+  background-color: #ffffff;
   color: white;
-  display: inline-block; 
-  width: 100%;
+  display: grid;
   height: 100vh;
+  grid-template-rows: min-content max-content;
+
 }
 
 
