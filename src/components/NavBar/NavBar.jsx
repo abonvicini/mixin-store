@@ -1,8 +1,7 @@
 import React from 'react';
-import './NavBar.css';
-
 import Logo from '../Logo';
 import CartWidget from '../CartWidget/CartWidget';
+import styles from './styles/NavBar.module.css';
 
 const NavBar = () => {
   const handleClick = (e) => {
@@ -14,11 +13,11 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar">
+    <div className={styles.navbar}>
       <div>
         <Logo />
       </div>
-      <div className="flex">
+      <div className={styles.flex}>
         <p onClick={(e) => handleClick(e)}>Home</p>
         <p onClick={(e) => handleClick(e)}>Sobre nosotros</p>
         <p onClick={(e) => handleClick(e)}>Categorias</p>
