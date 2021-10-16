@@ -16,6 +16,7 @@ Se agregaron al proyecto las siguientes dependencias:
 
 ### MUI.UI
 ### react-router-dom
+### nanoid
 
 ## Decisiones
 
@@ -24,6 +25,7 @@ Se agregaron al proyecto las siguientes dependencias:
 - Decidi deployar el proyecto en Vercel para poder generar una live-view del mismo.
 - MUI.UI: Para poder utilizar componentes estilados.
 - react-router-dom: Para poder generar un router y navegar entre las diferentes secciones.
+- nanoid: Para generar un id unico e irrepetible para cada objeto (producto)
 
 ## Finalidad
 
