@@ -2,27 +2,34 @@ import React from 'react';
 import Logo from './Logo';
 import CartWidget from './CartWidget';
 import styles from './styles/NavBar.module.css';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
-  const handleClick = (e) => {
-    console.log('Soy ' + e.target.innerText + ' y soy clickeable');
-  };
-
-  const handleClickCart = () => {
-    console.log('Soy un carrito de compras');
-  };
-
   return (
     <div className={styles.navbar}>
-      <div>
+      <Link className={styles.linkLogo} exact to="/">
         <Logo />
-      </div>
+      </Link>
       <div className={styles.flex}>
-        <p onClick={(e) => handleClick(e)}>Home</p>
-        <p onClick={(e) => handleClick(e)}>Categorias</p>
-        <p onClick={(e) => handleClick(e)}>Contacto</p>
+        <Link className={styles.link} exact to="/">
+          Inicio
+        </Link>
+
+        <Link className={styles.link} exact to="/category/silla">
+          Sillas
+        </Link>
+
+        <Link className={styles.link} exact to="/category/banqueta">
+          Banquetas
+        </Link>
+
+        <Link className={styles.link} exact to="/contacto">
+          Contacto
+        </Link>
       </div>
-      <CartWidget handleClickCart={handleClickCart} />
+      <Link className={styles.link} to="/cart">
+        <CartWidget />
+      </Link>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 .App {
   background-color: #ffffff;
-  color: white;
+  color: #1976d2;
   display: grid;
   height: 100vh;
   grid-template-rows: min-content max-content;

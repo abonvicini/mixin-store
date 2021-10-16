@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -10,12 +11,16 @@ import styles from './styles/ItemDetail.module.css';
 import Divider from '@mui/material/Divider';
 
 const ItemDetail = ({ id, name, price, img, description }) => {
+  const { goBack, push } = useHistory();
+
   return (
     <>
-      <Typography className={styles.title} variant="h4" component="h1">
-        {name}
-      </Typography>
-      <Divider variant="middle" />
+      <div>
+        <Typography className={styles.title} variant="h4" component="h1">
+          {name}
+        </Typography>
+        <Divider variant="middle" />
+      </div>
       <Container maxWidth="sm" className={styles.container}>
         <Card>
           <CardMedia component="img" image={img} alt={name} />
@@ -34,7 +39,13 @@ const ItemDetail = ({ id, name, price, img, description }) => {
         </Card>
         <CardActions className={styles.cardActions}>
           <Button variant="contained" size="large">
-            Comprar ${price}
+            Precio: ${price}
+          </Button>
+          <Button variant="outlined" size="large" onClick={() => goBack()}>
+            Volver
+          </Button>
+          <Button variant="outlined" size="large" onClick={() => push('/')}>
+            Volver al inicio
           </Button>
         </CardActions>
       </Container>

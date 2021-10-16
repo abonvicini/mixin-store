@@ -12,30 +12,22 @@
   flex-wrap: wrap;
 }
 
-.navbar p {
+.link {
   color: rgba(255, 255, 255, 0.692);
   margin: 0.765em 1em;
   overflow-wrap: unset;
+  text-decoration: none;
 
 }
-.navbar p:hover {
+.link:hover {
    color: rgba(255, 255, 255, 0.966);
    transition: ease-in-out 200ms;
    cursor: pointer;
    user-select: none;
 }
 
-.navbar .cart {
-  color: rgba(255, 255, 255, 0.692);
-  margin: 0.765em 1em;
-  overflow-wrap: unset;
-}
-
-.cart:hover {
-  color: rgba(255, 255, 255, 0.966);
-  transition: ease-in-out 200ms;
-  cursor: pointer;
-  user-select: none;
+.linkLogo {
+  text-decoration: none;
 }
 
 @media (max-width: 732px) {
