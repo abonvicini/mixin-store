@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { callStock } from '../../../helpers/callStock';
-import CircularIndeterminate from '../../../helpers/circularProgress';
+import { getStock } from '../../../helpers/getStock';
+import Spinner from '../../../helpers/Spinner';
 import ItemList from './ItemList';
 import styles from './styles/ItemListContainer.module.css';
 
@@ -11,7 +11,7 @@ const ItemListContainer = () => {
   useEffect(() => {
     setLoading(true);
 
-    callStock()
+    getStock()
       .then((res) => {
         setItems(res);
       })
@@ -23,7 +23,7 @@ const ItemListContainer = () => {
 
   return (
     <div className={styles.mainSection}>
-      {loading ? CircularIndeterminate() : <ItemList stock={items} />}
+      {loading ? <Spinner /> : <ItemList stock={items} />}
     </div>
   );
 };

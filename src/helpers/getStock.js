@@ -1,6 +1,6 @@
 import { mockStock } from '../data/mockStock';
 
-export const callStock = () => {
+export const getStock = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(mockStock);

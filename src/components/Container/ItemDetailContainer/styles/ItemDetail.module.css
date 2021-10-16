@@ -1,0 +1,12 @@
+.container {
+  margin-top: 2em;
+}
+.title {
+  color: #1976d2;
+  text-align: left;
+  padding: 1em;
+  padding-bottom: 0.5em;
+}
+.cardActions {
+  margin-top: 1em;
+}
