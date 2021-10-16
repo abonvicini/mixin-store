@@ -4,7 +4,7 @@ Proyecto iniciado - Tienda en progreso.
 
 ## Demo
 
-El proyecto se encuentra disponible en este link.
+El proyecto se encuentra disponible en este [link](https://mixin-store.vercel.app/).
 
 ## Idea
 
