@@ -2,9 +2,28 @@
 
 Proyecto iniciado - Tienda en progreso.
 
+## Demo
+
+El proyecto se encuentra disponible en este link.
+
 ## Idea
 
 MixinStore es una tienda de sillas, las cuales se especializan por tener un diseño a la vanguardia y ser extremadamente comodas.
+
+## Librerias utilizadas
+
+Se agregaron al proyecto las siguientes dependencias:
+
+### MUI.UI
+### react-router-dom
+
+## Decisiones
+
+- Se utilizo el instalador de paquetes yarn, simplemente por gusto y costumbre, ya que lo utilizo a diario.
+- Los componentes tienen sus estilos modularizdos, ya que me parece una manera muy prolija de poder estilarlos de ser necesario.
+- Decidi deployar el proyecto en Vercel para poder generar una live-view del mismo.
+- MUI.UI: Para poder utilizar componentes estilados.
+- react-router-dom: Para poder generar un router y navegar entre las diferentes secciones.
 
 ## Finalidad
 
