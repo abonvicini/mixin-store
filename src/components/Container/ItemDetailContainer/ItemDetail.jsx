@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -9,9 +9,11 @@ import Typography from '@mui/material/Typography';
 import { Container } from '@mui/material';
 import styles from './styles/ItemDetail.module.css';
 import Divider from '@mui/material/Divider';
+import { CartContext } from '../../../context/CartContext';
 
 const ItemDetail = ({ id, name, price, img, description }) => {
   const { goBack, push } = useHistory();
+  const {logMessage} = useContext(CartContext)
 
   return (
     <>
@@ -46,6 +48,9 @@ const ItemDetail = ({ id, name, price, img, description }) => {
           </Button>
           <Button variant="outlined" size="large" onClick={() => push('/')}>
             Volver al inicio
+          </Button>
+          <Button variant="outlined" size="large" onClick={() => logMessage("Funciona el Context")}>
+            Context
           </Button>
         </CardActions>
       </Container>
