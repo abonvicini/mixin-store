@@ -1,0 +1,9 @@
+.cardActionsDetail {
+    margin-top: 1em;
+  }
+
+.cardActionsItem {
+    justify-content: space-between;
+    margin: 0 0.5em;
+    margin-bottom: 0.5em
+}

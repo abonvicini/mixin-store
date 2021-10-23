@@ -9,6 +9,7 @@ export const mockStock = [
     price: 3500,
     img: 'https://image.freepik.com/foto-gratis/muebles-modernos-estudios-estilo-vida-verde_1122-1837.jpg?1',
     category: 'silla',
+    stock: 15,
   },
   {
     id: nanoid(),
@@ -18,6 +19,7 @@ export const mockStock = [
     price: 500,
     img: 'https://image.freepik.com/foto-gratis/primer-plano-taburete-bar-estilo-loft_181624-30022.jpg',
     category: 'banqueta',
+    stock: 6,
   },
   {
     id: nanoid(),
@@ -27,6 +29,7 @@ export const mockStock = [
     price: 1200,
     img: 'https://image.freepik.com/foto-gratis/taburetes-bar-altos-modernos-madera_53876-95411.jpg',
     category: 'banqueta',
+    stock: 10,
   },
   {
     id: nanoid(),
@@ -36,5 +39,6 @@ export const mockStock = [
     price: 4500,
     img: 'https://img.freepik.com/foto-gratis/silla-oficina_1203-2719.jpg?size=338&ext=jpg',
     category: 'silla',
+    stock: 2,
   },
 ];

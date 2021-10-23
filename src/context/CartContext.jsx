@@ -1,18 +1,43 @@
-import React, { createContext } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
-
+const emptyCart = [];
 
 const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState(emptyCart);
 
-  const logMessage = (message) => {
-    console.log(message);
+  const addItem = (item) => {
+    setCart([...cart, item]);
   };
 
-  
+  const removeItem = (itemId) => {
+    const newCart = cart.filter((cartItem) => cartItem.id !== itemId);
+    setCart(newCart);
+  };
+
+  const clear = () => {
+    setCart(emptyCart);
+  };
+
+  const isInCart = (itemId) => {
+    return cart.some((cartItem) => cartItem.id === itemId);
+  };
+
+  const totalItemsCart = () => {
+    return cart.reduce((acc, cartItem) => acc + cartItem.amount, 0);
+  };
+
+  //Se deja el useEffect para mostrar como funciona el carrito desde la consola
+  useEffect(() => {
+    console.log("Carrito: ", cart);
+  }, [cart]);
 
   return (
-    <CartContext.Provider value={{ logMessage }}>{children}</CartContext.Provider>
+    <CartContext.Provider
+      value={{ addItem, removeItem, clear, isInCart, totalItemsCart }}
+    >
+      {children}
+    </CartContext.Provider>
   );
 };
 

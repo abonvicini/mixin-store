@@ -1,12 +1,20 @@
-.container {
-  margin-top: 2em;
+.containerImage {
+  margin-top: 3em;
+  margin-bottom: 1em;
 }
+
+.containerInfo {
+  margin-top: 2em;
+  margin-bottom: 4em;
+}
+
 .title {
   color: #1976d2;
   text-align: left;
   padding: 1em;
   padding-bottom: 0.5em;
 }
+
 .cardActions {
   margin-top: 1em;
 }
