@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from 'react';
 
 export const CartContext = createContext();
 const emptyCart = [];
@@ -27,14 +27,29 @@ const CartProvider = ({ children }) => {
     return cart.reduce((acc, cartItem) => acc + cartItem.amount, 0);
   };
 
+  const totalPriceCart = () => {
+    return cart.reduce(
+      (acc, cartItem) => acc + cartItem.amount * cartItem.price,
+      0,
+    );
+  };
+
   //Se deja el useEffect para mostrar como funciona el carrito desde la consola
   useEffect(() => {
-    console.log("Carrito: ", cart);
+    console.log('Carrito: ', cart);
   }, [cart]);
 
   return (
     <CartContext.Provider
-      value={{ addItem, removeItem, clear, isInCart, totalItemsCart }}
+      value={{
+        addItem,
+        removeItem,
+        clear,
+        isInCart,
+        totalItemsCart,
+        cart,
+        totalPriceCart,
+      }}
     >
       {children}
     </CartContext.Provider>

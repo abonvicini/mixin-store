@@ -4,6 +4,6 @@ export const getItems = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(mockStock);
-    }, 2000);
+    }, 500);
   });
 };
