@@ -1,13 +1,4 @@
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Divider,
-  Paper,
-  Container,
-  Typography,
-} from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import React, { useContext } from 'react';
 import CartItem from './CartItem';
 import { CartContext } from '../../../context/CartContext';

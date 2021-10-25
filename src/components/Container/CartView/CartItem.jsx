@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { CartContext } from '../../../context/CartContext';
 import {
   Button,
-  Card,
   CardActions,
   CardContent,
   Divider,
