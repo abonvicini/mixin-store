@@ -5,44 +5,45 @@ import {
   CardActions,
   CardContent,
   Divider,
-  Paper,
   Typography,
+  Card,
+  CardMedia,
 } from '@mui/material';
 
-const CartItem = ({ id, name, price, amount }) => {
+const CartItem = ({ id, name, price, amount, img }) => {
   const { removeItem } = useContext(CartContext);
+
   return (
-    <Paper
-      variant="outlined"
+    <Card
       sx={{
-        width: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        padding: '1em',
-        height: '18em',
+        width: '300px',
       }}
     >
-      <CardContent
-        sx={{
-          width: 'auto',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
-        <Typography variant="h4">{name}</Typography>
+      <CardMedia
+        sx={{ objectFit: 'fit-content' }}
+        component="img"
+        height="200"
+        image={img}
+        alt={name}
+      />
+
+      <CardContent>
+        <Typography variant="h5">{name}</Typography>
         <Divider sx={{ margin: '1em 0' }} />
-        <Typography variant="body">Valor por unidad: {price}</Typography>
+        <Typography variant="body">Valor: ${price}</Typography>
+        <br />
         <Typography variant="body">Cantidad: {amount}</Typography>
+        <Divider sx={{ margin: '1em 0' }} />
         <Typography variant="h6">
           Subtotal: {'$'}
           {price * amount}
         </Typography>
       </CardContent>
-      <CardActions>
+
+      <CardActions sx={{ padding: '1em', justifyContent: 'flex-start' }}>
         <Button
           sx={{}}
-          size="large"
+          size="small"
           variant="contained"
           color="error"
           onClick={() => removeItem(id)}
@@ -50,7 +51,7 @@ const CartItem = ({ id, name, price, amount }) => {
           Borrar
         </Button>
       </CardActions>
-    </Paper>
+    </Card>
   );
 };
 

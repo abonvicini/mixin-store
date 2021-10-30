@@ -1,18 +1,18 @@
-import React, { useContext, useState } from "react";
-import { useHistory } from "react-router";
-import { CartContext } from "../../../context/CartContext";
-import GoToCart from "../../../utils/Buttons/GoToCart";
-import ItemCount from "../ItemCount/ItemCount";
-import styles from "./styles/ItemDetail.module.css";
+import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router';
+import { CartContext } from '../../../context/CartContext';
+import GoToCart from '../../../utils/Buttons/GoToCart';
+import ItemCount from '../ItemCount/ItemCount';
+import styles from './styles/ItemDetail.module.css';
 
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import { Container } from "@mui/material";
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import { Container } from '@mui/material';
 
 const ItemDetail = ({ id, name, price, img, description, category, stock }) => {
   const { goBack, push } = useHistory();
@@ -26,6 +26,7 @@ const ItemDetail = ({ id, name, price, img, description, category, stock }) => {
       price,
       category,
       amount,
+      img,
     };
 
     if (amount > 0) {
@@ -57,8 +58,8 @@ const ItemDetail = ({ id, name, price, img, description, category, stock }) => {
             </Typography>
             <Divider
               sx={{
-                marginTop: "1em",
-                marginBottom: "1em",
+                marginTop: '1em',
+                marginBottom: '1em',
               }}
             />
             <Typography variant="body2" color="text.secondary">
@@ -70,7 +71,7 @@ const ItemDetail = ({ id, name, price, img, description, category, stock }) => {
           <Button variant="outlined" size="large" onClick={() => goBack()}>
             Volver
           </Button>
-          <Button variant="outlined" size="large" onClick={() => push("/")}>
+          <Button variant="outlined" size="large" onClick={() => push('/')}>
             Volver al inicio
           </Button>
         </CardActions>

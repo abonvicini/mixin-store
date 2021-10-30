@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { getItems } from '../../../helpers/getItems';
+import { getFirestore } from '../../../firebase/config';
 import Spinner from '../../../helpers/Spinner';
 import ItemDetail from './ItemDetail';
 
@@ -12,15 +12,23 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     setLoading(true);
 
-    getItems()
+    const db = getFirestore();
+    const products = db.collection('products');
+    const item = products.doc(itemId);
+
+    item
+      .get()
       .then((res) => {
-        setItem(res.find((prod) => prod.id === String(itemId)));
+        setItem({
+          id: res.id,
+          ...res.data(),
+        });
       })
       .catch((err) => console.log(err))
       .finally(() => {
         setLoading(false);
       });
-  }, [itemId]);
+  }, [itemId, setLoading]);
 
   return <>{loading ? <Spinner /> : <ItemDetail {...item} />}</>;
 };

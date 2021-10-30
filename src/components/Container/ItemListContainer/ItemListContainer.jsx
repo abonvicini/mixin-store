@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { getStock } from '../../../helpers/getStock';
+import { getFirestore } from '../../../firebase/config';
 import Spinner from '../../../helpers/Spinner';
 import ItemList from './ItemList';
 
@@ -12,19 +12,25 @@ const ItemListContainer = () => {
   useEffect(() => {
     setLoading(true);
 
-    getStock()
+    const db = getFirestore();
+    const products = categoryId
+      ? db.collection('products').where('category', '==', categoryId)
+      : db.collection('products');
+
+    products
+      .get()
       .then((res) => {
-        if (categoryId) {
-          setItems(res.filter((prod) => prod.category === categoryId));
-        } else {
-          setItems(res);
-        }
+        const newProducts = res.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() };
+        });
+        console.log('newProducts: ', newProducts);
+        setItems(newProducts);
       })
       .catch((err) => console.log(err))
       .finally(() => {
         setLoading(false);
       });
-  }, [categoryId]);
+  }, [categoryId, setLoading]);
 
   return <>{loading ? <Spinner /> : <ItemList stock={items} />}</>;
 };
