@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
-import { CartContext } from '../../../context/CartContext';
-import GoToCart from '../../../utils/Buttons/GoToCart';
+import { CartContext } from 'context/CartContext';
+import GoToCart from 'utils/Buttons/GoToCart';
 import ItemCount from '../ItemCount/ItemCount';
 import styles from './styles/ItemDetail.module.css';
 

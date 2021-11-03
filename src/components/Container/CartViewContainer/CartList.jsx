@@ -1,43 +1,18 @@
 import React from 'react';
 import CartItem from './CartItem';
 import { Container, Divider, Typography } from '@mui/material';
+import { containerCart, containerCardCart, textCardCart } from './styles';
 
 const CartList = ({ cart, totalPriceCart }) => {
   return (
-    <Container
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        marginTop: '4em',
-        justifyContent: 'center',
-      }}
-    >
-      <Container
-        sx={{
-          display: 'grid',
-          gap: '1rem',
-          gridTemplateColumns: 'repeat(auto-fit, 300px)',
-          placeContent: 'center',
-          marginBottom: '2em',
-        }}
-      >
+    <Container sx={containerCart}>
+      <Container sx={containerCardCart}>
         {cart.map((cartItem) => (
           <CartItem {...cartItem} />
         ))}
       </Container>
       <Divider sx={{ margin: '1em 0' }} />
-      <Typography
-        sx={{
-          margin: '1rem',
-          padding: '1rem',
-          marginRight: '4rem',
-          fontSize: '2rem',
-          fontWeight: 600,
-          color: '#333',
-          alignSelf: 'flex-end',
-        }}
-        variant="body"
-      >
+      <Typography variant="body" sx={textCardCart}>
         Total: {'$'}
         {totalPriceCart()}
       </Typography>

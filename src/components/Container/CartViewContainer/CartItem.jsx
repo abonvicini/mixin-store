@@ -30,7 +30,7 @@ const CartItem = ({ id, name, price, amount, img }) => {
       <CardContent>
         <Typography variant="h5">{name}</Typography>
         <Divider sx={{ margin: '1em 0' }} />
-        <Typography variant="body">Valor: ${price}</Typography>
+        <Typography variant="body">Valor: {`$${price}`}</Typography>
         <br />
         <Typography variant="body">Cantidad: {amount}</Typography>
         <Divider sx={{ margin: '1em 0' }} />
