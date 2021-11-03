@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { getFirestore } from '../../../firebase/config';
 import Spinner from '../../../helpers/Spinner';
 import ItemList from './ItemList';
+
+import { getProductsByCategory } from 'services/store';
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -10,26 +11,18 @@ const ItemListContainer = () => {
   const { categoryId } = useParams();
 
   useEffect(() => {
-    setLoading(true);
+    const fetchApiEffect = async () => {
+      setLoading(true);
 
-    const db = getFirestore();
-    const products = categoryId
-      ? db.collection('products').where('category', '==', categoryId)
-      : db.collection('products');
-
-    products
-      .get()
-      .then((res) => {
-        const newProducts = res.docs.map((doc) => {
-          return { id: doc.id, ...doc.data() };
-        });
-        console.log('newProducts: ', newProducts);
-        setItems(newProducts);
-      })
-      .catch((err) => console.log(err))
-      .finally(() => {
-        setLoading(false);
-      });
+      getProductsByCategory(categoryId)
+        .then((newProducts) => setItems(newProducts))
+        .catch((error) => {
+          setItems(error.products);
+          console.log(error.reason);
+        })
+        .finally(() => setLoading(false));
+    };
+    fetchApiEffect();
   }, [categoryId, setLoading]);
 
   return <>{loading ? <Spinner /> : <ItemList stock={items} />}</>;
