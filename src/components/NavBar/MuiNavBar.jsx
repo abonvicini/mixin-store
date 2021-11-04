@@ -18,6 +18,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { useContext } from 'react';
 import { AuthContext } from 'context/AuthContext';
 import { Alert, Avatar, Snackbar, Stack } from '@mui/material';
+import Drawer from './Drawer';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -67,10 +68,6 @@ export default function MuiNavBar() {
   const photoURL = userLogged?.photoURL;
 
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
-
-  // React.useEffect(() => {
-  //   setSnackbarOpen(true);
-  // }, []);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -215,15 +212,8 @@ export default function MuiNavBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+          <Drawer />
+
           <Typography
             variant="h6"
             noWrap
