@@ -1,5 +1,5 @@
-import React from "react";
-import { Button } from "@mui/material";
+import React from 'react';
+import { Button } from '@mui/material';
 
 const ItemCount = ({ amount, stock, setAmount }) => {
   const handleSubtract = () => {
@@ -18,7 +18,7 @@ const ItemCount = ({ amount, stock, setAmount }) => {
       <Button variant="contained" size="large" onClick={handleSubtract}>
         -
       </Button>
-      <Button variant="contained" size="large" onClick={handleSubtract}>
+      <Button variant="contained" size="large">
         {amount}
       </Button>
       <Button variant="contained" size="large" onClick={handleAdd}>
