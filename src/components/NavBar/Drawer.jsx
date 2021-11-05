@@ -1,21 +1,18 @@
-import * as React from 'react';
+import React, { useState, Fragment } from 'react';
 import Box from '@mui/material/Box';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
-
-import { Link } from 'react-router-dom';
 import { IconButton } from '@mui/material';
+import ItemLink from './ItemLink';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import HomeIcon from '@mui/icons-material/Home';
+import CategoryIcon from '@mui/icons-material/Category';
+import ContactsIcon from '@mui/icons-material/Contacts';
 
 const Drawer = () => {
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     bottom: false,
   });
 
@@ -39,18 +36,21 @@ const Drawer = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <Link to="/">
-          <ListItem button key={'Inicio'}>
-            <ListItemIcon />
-            <ListItemText primary={'Inicio'} />
-          </ListItem>
-        </Link>
-        <Link to="/category/silla">
-          <ListItem button key={'Sillas'}>
-            <ListItemIcon />
-            <ListItemText primary={'Sillas'} />
-          </ListItem>
-        </Link>
+        <ItemLink path="/" label="Home">
+          <HomeIcon sx={{ marginRight: '1rem' }} />
+        </ItemLink>
+        <ItemLink path="/category/silla" label="Sillas">
+          <CategoryIcon sx={{ marginRight: '1rem' }} />
+        </ItemLink>
+        <ItemLink path="/category/banqueta" label="Banquetas">
+          <CategoryIcon sx={{ marginRight: '1rem' }} />
+        </ItemLink>
+        <ItemLink path="/contacto" label="Contacto">
+          <ContactsIcon sx={{ marginRight: '1rem' }} />
+        </ItemLink>
+        <ItemLink path="/cart" label="My Cart">
+          <ShoppingCartIcon sx={{ marginRight: '1rem' }} />
+        </ItemLink>
       </List>
     </Box>
   );
@@ -59,7 +59,7 @@ const Drawer = () => {
 
   return (
     <div>
-      <React.Fragment key={anchor}>
+      <Fragment key={anchor}>
         <Button onClick={toggleDrawer(anchor, true)}>
           <IconButton
             size="large"
@@ -78,7 +78,7 @@ const Drawer = () => {
         >
           {list(anchor)}
         </SwipeableDrawer>
-      </React.Fragment>
+      </Fragment>
     </div>
   );
 };
