@@ -7,14 +7,17 @@ import styles from './styles/Checkout.module.css';
 import { useHistory } from 'react-router-dom';
 
 const Checkout = () => {
+  const isLogged = localStorage.getItem('isLogged');
+  const userLogged = JSON.parse(localStorage.getItem('userLogged'));
+
   const { push } = useHistory();
   const [loading, setLoading] = useState(false);
   const { cart, totalPriceCart, clear } = useContext(CartContext);
 
   const [values, setValues] = useState({
-    nombre: '',
+    nombre: isLogged ? userLogged.displayName : '',
     apellido: '',
-    email: '',
+    email: isLogged ? userLogged.email : '',
     tel: '',
   });
 
@@ -91,8 +94,8 @@ const Checkout = () => {
                   name="nombre"
                   value={values.nombre}
                   onChange={handleInputChange}
-                  fullWidth={'true'}
-                  autoFocus={'true'}
+                  fullWidth={true}
+                  autoFocus={true}
                   error={values.nombre.length < 3}
                 />
 
