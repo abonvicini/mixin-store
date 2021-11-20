@@ -7,8 +7,6 @@ import { Button, Container, Typography, Divider } from '@mui/material';
 const CartViewContainer = () => {
   const { cart, totalPriceCart } = useContext(CartContext);
   const { push } = useHistory();
-  console.log('CartViewContainer: ', cart);
-  console.log('totalPriceCart: ', totalPriceCart());
 
   return (
     <>

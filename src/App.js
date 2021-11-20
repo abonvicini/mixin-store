@@ -1,12 +1,13 @@
 import './App.css';
 import ItemDetailContainer from './components/Container/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from './components/Container/ItemListContainer/ItemListContainer';
-// import NavBar from './components/NavBar/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import CartProvider from './context/CartContext';
 import AuthProvider from 'context/AuthContext';
 import CartView from './components/Container/CartViewContainer/CartViewContainer';
-import MuiNavBar from './components/NavBar/MuiNavBar';
+import Checkout from 'components/Container/CheckoutContainer/Checkout';
+import Success from 'components/Container/Confirmation/Success';
 
 function App() {
   return (
@@ -14,8 +15,7 @@ function App() {
       <AuthProvider>
         <CartProvider>
           <BrowserRouter>
-            {/* <NavBar /> */}
-            <MuiNavBar />
+            <NavBar />
             <Switch>
               <Route exact path="/">
                 <ItemListContainer />
@@ -35,6 +35,14 @@ function App() {
 
               <Route exact path="/cart">
                 <CartView />
+              </Route>
+
+              <Route exact path="/checkout">
+                <Checkout />
+              </Route>
+
+              <Route exact path="/success">
+                <Success />
               </Route>
 
               <Route path="*">

@@ -15,7 +15,9 @@ const ItemListContainer = () => {
       setLoading(true);
 
       getProductsByCategory(categoryId)
-        .then((newProducts) => setItems(newProducts))
+        .then((newProducts) =>
+          setItems(newProducts.filter((item) => item.stock !== 0)),
+        )
         .catch((error) => {
           setItems(error.products);
           console.log(error.reason);

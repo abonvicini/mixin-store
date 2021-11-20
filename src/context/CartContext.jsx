@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 
 export const CartContext = createContext();
 const emptyCart = [];
@@ -33,11 +33,6 @@ const CartProvider = ({ children }) => {
       0,
     );
   };
-
-  //Se deja el useEffect para mostrar como funciona el carrito desde la consola
-  useEffect(() => {
-    console.log('Carrito: ', cart);
-  }, [cart]);
 
   return (
     <CartContext.Provider

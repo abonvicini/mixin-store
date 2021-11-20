@@ -18,7 +18,6 @@ export const getProductsByCategory = async (categoryId) => {
       const newProducts = res.docs.map((doc) => {
         return { id: doc.id, ...doc.data() };
       });
-      console.log('[Service] newProducts: ', newProducts);
       return newProducts;
     })
     .catch((err) => {
