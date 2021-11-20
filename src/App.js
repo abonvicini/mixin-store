@@ -6,7 +6,6 @@ import CartProvider from './context/CartContext';
 import CartView from './components/Container/CartViewContainer/CartViewContainer';
 import Checkout from 'components/Container/CheckoutContainer/Checkout';
 import Success from 'components/Container/Confirmation/Success';
-import NavBar from 'components/NavBar/NavBar';
 import MuiNavBar from 'components/NavBar/MuiNavBar';
 import AuthProvider from 'context/AuthContext';
 
@@ -16,7 +15,6 @@ function App() {
       <AuthProvider>
         <CartProvider>
           <BrowserRouter>
-            {/* <NavBar /> */}
             <MuiNavBar />
             <Switch>
               <Route exact path="/">
