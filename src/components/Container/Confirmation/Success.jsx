@@ -59,7 +59,7 @@ const Success = () => {
           <Divider sx={{ margin: '0.5em 0' }} />
           <Typography variant={'body2'}>
             {cartSuccess.map((item) => (
-              <Item {...item} />
+              <Item key={item.id} {...item} />
             ))}
           </Typography>
           <Typography sx={{ marginTop: '1em' }} variant={'h6'}>

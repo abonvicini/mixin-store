@@ -3,6 +3,7 @@ import CartItem from './CartItem';
 import { Button, Container, Divider, Typography } from '@mui/material';
 import { containerCart, containerCardCart, textCardCart } from './styles';
 import { useHistory } from 'react-router-dom';
+import { nanoid } from 'nanoid';
 
 const CartList = ({ cart, totalPriceCart }) => {
   const { push } = useHistory();
@@ -10,7 +11,7 @@ const CartList = ({ cart, totalPriceCart }) => {
     <Container sx={containerCart}>
       <Container sx={containerCardCart}>
         {cart.map((cartItem) => (
-          <CartItem {...cartItem} />
+          <CartItem key={nanoid()} {...cartItem} />
         ))}
       </Container>
       <Button
